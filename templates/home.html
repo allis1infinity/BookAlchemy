@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  </head>
+  <body>
+    <h1>Welcome to your Library!</h1>
+
+ <!-- Search form -->
+    <form id="search-form" action="/" method="get">
+        <input type="text" name="q" placeholder="Search books...">
+        <input type="submit" value="Search">
+    </form>
+
+    <!-- Sorting-->
+    <form id="sort-form" action="/" method="get">
+        <label for="sort">Sort by:</label>
+        <select name="sort" id="sort">
+            <option value="title">Title</option>
+            <option value="author">Author</option>
+        </select>
+        <input type="submit" value="Sort">
+    </form>
+
+    <!-- Flash message -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div>
+          {% for message in messages %}
+              {{ message }}
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <h2>All Books</h2>
+    <ul>
+      {% for book in books %}
+        <li>
+          {{ book.title }} by {{ book.author.name }}
+
+          <!--Delete button -->
+          <form action="/book/{{ book.id }}/delete" method="post" style="display:inline;">
+              <button type="submit">Delete</button>
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('add_author')}}">Add Author</a>
+    <a href="{{ url_for('add_book')}}">Add Book</a>
+
+  </body>
+</html>
