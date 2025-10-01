@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from datetime import date
 
 # Create a database object:
 db = SQLAlchemy()
@@ -8,8 +9,8 @@ class Author(db.Model):
     __tablename__ = 'authors'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
-    birth_date = db.Column(db.String)
-    date_of_death = db.Column(db.String)
+    birth_date = db.Column(db.Date)
+    date_of_death = db.Column(db.Date)
 
     def __repr__(self):
         return f'Author {self.name}'

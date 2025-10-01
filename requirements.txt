@@ -2,3 +2,4 @@ flask
 sqlalchemy
 flask-sqlalchemy
 jinja2
+python-dotenv

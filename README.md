@@ -13,14 +13,22 @@ This is a simple web application created using Python and the **Flask** framewor
 ---
 
 ### **How to Run the Project**
+ 
+1.  Create a file named **`.env`** (with a dot at the start) in the project 
+    root directory. Add your Flask secret key inside this file. This is 
+    required for secure session management:
+    ```
+    # .env
+    SECRET_KEY="your_very_secret_key_here"
+    ```
 
-1.  Install the necessary libraries:
+2. Install the necessary libraries:
     ```bash
     pip install -r requirements.txt
     ```
-2.  Run the application:
+3.  Run the application: 
     ```bash
-    python app.py
+     python app.py
     ```
 After launching, open your web browser and go to `http://127.0.0.1:5000/`.
 
